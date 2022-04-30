@@ -6,14 +6,14 @@ object ludmila {
 }
 
 object anaMaria {
+	/*
+	 * No tenes ningun metodo que cambio a false estaEstable
+	 * Te cambie el metodo precioPorKilometro para que tengas una forma más facil de hacerlo
+	 */
 	const estaEstable = true
 	method economiaEstable() { return estaEstable }
-	method precioPorKilometro() {
-		var precioFinal = 0 
-		if (estaEstable) { precioFinal = 30 }
-		else { precioFinal = 25 }
-		return precioFinal	   
-	}
+	method precioPorKilometro() = if(estaEstable) {30} else { 25 }
+	
 }
 
 object teresa {
@@ -24,9 +24,11 @@ object teresa {
 
 object melina {
 	var trabajaCon
+	/*
+	 * TrabajaPara(clienta) es un method de indicación esta MAL que tenga un return
+	 */
 	method trabajaPara(clienta) { 
 		trabajaCon = clienta
-		return clienta
 	}
 	method precioPorKilometro() { return trabajaCon.precioPorKilometro() - 3 }
 }

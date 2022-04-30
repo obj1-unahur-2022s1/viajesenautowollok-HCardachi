@@ -9,7 +9,7 @@ object roxana {
 
 object gabriela {
 	method costoPorViaje(clienta,kms) {
-		return ((clienta.precioPorKilometro() + ((clienta.precioPorKilometro() * 20) / 100))) * kms)
+		return clienta.precioPorKilometro() * kms * 1.20
 	}
 }
 
@@ -18,10 +18,8 @@ object mariela {
 	//method pactadoConRemiseria() { return precioPactado }
 	//method precioNuevo(precio) { precioPactado = precio}
 	method costoPorViaje(clienta,kms) { 
-		var precio = clienta.precioPorKilometro() * kms
-		if(precio < 50) { precio = 50 }
-		else { precio }
-		return precio
+		/* Acá debias usar el 50.max() */
+		return 50.max(clienta.precioPorKilometro() * kms)
 	}
 }
 
